@@ -4,7 +4,7 @@
   <title><![CDATA[Gassa Blog]]></title>
   <link href="http://Gassa.github.io/atom.xml" rel="self"/>
   <link href="http://Gassa.github.io/"/>
-  <updated>2014-04-22T13:00:57-04:00</updated>
+  <updated>2014-04-22T15:12:21-04:00</updated>
   <id>http://Gassa.github.io/</id>
   <author>
     <name><![CDATA[Yin Yan]]></name>
@@ -12,5 +12,20 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[My First Post]]></title>
+    <link href="http://Gassa.github.io/blog/2014/04/22/who-am-i/"/>
+    <updated>2014-04-22T13:27:16-04:00</updated>
+    <id>http://Gassa.github.io/blog/2014/04/22/who-am-i</id>
+    <content type="html"><![CDATA[<h2>See you Wordpress!!!</h2>
+
+<p>After two hours setting up, I finally have my new blog established with Octopress, and I can claim I am done with Wordpress. It really drove me crazy. I never satisfied with its page layout and display format, especially when I embedded some code snippets. In addition, I am also missing some of you older articles, when I moving my previous blog from wordpress.com to my own VPS hosting. Now I am happy with Octopress, it is easy to set up, and its markdown engine is pretty intuitive, almost zero learning curvy required.</p>
+
+<h2>What&rsquo;s this blog about?</h2>
+
+<p>The purpose of this blog is to record the solution and thoughs realted to my work and study. The topic will mainly lay in Linux kernel development, internal Android system analysis, some programming language concepts and some my research project related stuff.</p>
+]]></content>
+  </entry>
   
 </feed>
