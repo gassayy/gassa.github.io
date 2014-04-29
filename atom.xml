@@ -4,7 +4,7 @@
   <title><![CDATA[Gassa Blog]]></title>
   <link href="http://Gassa.github.io/atom.xml" rel="self"/>
   <link href="http://Gassa.github.io/"/>
-  <updated>2014-04-29T15:39:56-04:00</updated>
+  <updated>2014-04-29T17:37:18-04:00</updated>
   <id>http://Gassa.github.io/</id>
   <author>
     <name><![CDATA[Yin Yan]]></name>
@@ -49,6 +49,8 @@ shown in</p>
 
 <p>After two hours setting up, I finally have my new blog established with Octopress, and I can claim I am done with Wordpress. It really drove me crazy. I never satisfied with its page layout and display format, especially when I embedded some code snippets. In addition, I am also missing some of you older articles, when I moving my previous blog from wordpress.com to my own VPS hosting. Now I am happy with Octopress, it is easy to set up, and its markdown engine is pretty intuitive, almost zero learning curvy required.</p>
 
+<h2>Integrate Octopress with Github Page</h2>
+
 <p>The most convenient parts of Octopress is its integration with <a href="http://github.com">Github</a>. I can host my blog on Github pages, and edit it at anywhere as long as I have access to internet and git. On Octopress Documentation, there is an <a href="http://octopress.org/docs/deploying/github/">step-by-step instruction</a> that guide you to set up connection between your local repo and remote repo.</p>
 
 <p>First of all, create a git repo under github user account. To synchronize with remote repo, there is a configuration task,</p>
@@ -59,7 +61,13 @@ shown in</p>
 
 <p>The rake task will ask you for a URL of the Github repo. Copy the SSH or HTTPS URL from your newly created repository (e.g. <code>git@github.com:username/username.github.io.git</code>) and paste it in as a response.</p>
 
-<p>Then, use <code>rake generate</code> to get the initialize default site at local, run <code>rake deploy</code> to push the site content to your repo and corresponding Github Page (e.g username.githit.io).</p>
+<p>Then, use <code>rake generate</code> to get the initialize default site at local, run <code>rake deploy</code> to push the site content to your repo and corresponding Github Page (e.g <code>username.githit.io</code>).</p>
+
+<h2>Repo configuration</h2>
+
+<p>After getting everything working, I became interested in how all of the magic happens. The answer is in the <code>.git/config</code> file, when we run <code>rake setup_github_pages</code> and provide git repo url, <code>rake</code> clone the git repo as remote origin and push the generated site content into repo&rsquo;s master branch, then create another branch called &ldquo;source&rdquo; in same repo, all Octopress source code and blog markdown source code are pushed into origin source.</p>
+
+<p>Thus, I can use <code>rake generate &amp;&amp; rake deploy</code> to commit and push code to my blog repo&rsquo;s master branch, and run <code>git pull origin source</code> and <code>git push origion source</code> to pull the my repo&rsquo;s source code to any local repo, edit them and push them back to remote repo. Another takes away is <code>rake -T</code> will display all availible option for <code>rake</code></p>
 
 <h2>What&rsquo;s this blog about?</h2>
 
