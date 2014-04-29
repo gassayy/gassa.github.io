@@ -4,7 +4,7 @@
   <title><![CDATA[Gassa Blog]]></title>
   <link href="http://Gassa.github.io/atom.xml" rel="self"/>
   <link href="http://Gassa.github.io/"/>
-  <updated>2014-04-23T15:06:42-04:00</updated>
+  <updated>2014-04-29T15:39:56-04:00</updated>
   <id>http://Gassa.github.io/</id>
   <author>
     <name><![CDATA[Yin Yan]]></name>
@@ -14,6 +14,33 @@
 
   
   <entry>
+    <title type="html"><![CDATA[[Paparazzi Analysis]: Getting Started With Jpapabench 1]]></title>
+    <link href="http://Gassa.github.io/blog/2014/04/27/jpapabench1/"/>
+    <updated>2014-04-27T02:57:28-04:00</updated>
+    <id>http://Gassa.github.io/blog/2014/04/27/jpapabench1</id>
+    <content type="html"><![CDATA[<p>I am currently working on a project that related to <a href="http://wiki.paparazziuav.org/">Paparazzi</a>.
+Surprisingly, There are only few material available online. I decide to document all my exploration
+here. most of the things I am writing here is mainly from my code analysis,
+<a href="http://wiki.paparazziuav.org/wiki/Developer_Guide">Paparazzi wiki page</a> and its is related Java
+version project <a href="http://d3s.mff.cuni.cz/~malohlava/projects/jpapabench/">Jpapabench</a>.</p>
+
+<p>Jpapabench is a Java version of Paparazzi to provide a realistic application benchmark for
+evaluation variouse Java Virtual Machine (JVM), especilly for Real-time JVM. Since the code base of
+Paparazzi have been grown dramaticly to adapt to more wild hardware driver support, it is more
+easier to start with Jpapbench, it mirrors the function of Paparazzi, change the cyclic execution
+into tasks and execute them in seperated threads. Therefore, I decide to start with Jpapabench
+first.</p>
+
+<hr />
+
+<p>In Jpapabench, There are three sets of tasks, Autopilot, FBW(fly-by-wire) and sensing simulations as
+shown in</p>
+
+<p><span class='caption-wrapper'><img src="http://Gassa.github.io/images/jpapabench-pic/task-dependencies-flow.jpg" title="Jpapabench task dependency" ><span class='caption-text'>Jpapabench task dependency</span></span></p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[My First Post]]></title>
     <link href="http://Gassa.github.io/blog/2014/04/22/who-am-i/"/>
     <updated>2014-04-22T13:27:16-04:00</updated>
@@ -21,6 +48,18 @@
     <content type="html"><![CDATA[<h2>See you Wordpress!!!</h2>
 
 <p>After two hours setting up, I finally have my new blog established with Octopress, and I can claim I am done with Wordpress. It really drove me crazy. I never satisfied with its page layout and display format, especially when I embedded some code snippets. In addition, I am also missing some of you older articles, when I moving my previous blog from wordpress.com to my own VPS hosting. Now I am happy with Octopress, it is easy to set up, and its markdown engine is pretty intuitive, almost zero learning curvy required.</p>
+
+<p>The most convenient parts of Octopress is its integration with <a href="http://github.com">Github</a>. I can host my blog on Github pages, and edit it at anywhere as long as I have access to internet and git. On Octopress Documentation, there is an <a href="http://octopress.org/docs/deploying/github/">step-by-step instruction</a> that guide you to set up connection between your local repo and remote repo.</p>
+
+<p>First of all, create a git repo under github user account. To synchronize with remote repo, there is a configuration task,</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake setup_github_pages</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The rake task will ask you for a URL of the Github repo. Copy the SSH or HTTPS URL from your newly created repository (e.g. <code>git@github.com:username/username.github.io.git</code>) and paste it in as a response.</p>
+
+<p>Then, use <code>rake generate</code> to get the initialize default site at local, run <code>rake deploy</code> to push the site content to your repo and corresponding Github Page (e.g username.githit.io).</p>
 
 <h2>What&rsquo;s this blog about?</h2>
 

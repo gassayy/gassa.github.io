@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Blog Archive - Gassa Blog</title>
+  <title>[Paparazzi Analysis]: Getting Started With Jpapabench 1 - Gassa Blog</title>
   <meta name="author" content="Yin Yan">
 
   
-  <meta name="description" content="Blog Archive 2014 [Paparazzi Analysis]: Getting Started With Jpapabench 1
-Apr 27 2014 posted in jpapabench, paparazzi, real-time java My First Post &hellip;">
+  <meta name="description" content="I am currently working on a project that related to Paparazzi.
+Surprisingly, There are only few material available online. I decide to document all &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +19,7 @@ Apr 27 2014 posted in jpapabench, paparazzi, real-time java My First Post &helli
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://Gassa.github.io/blog/archives">
+  <link rel="canonical" href="http://Gassa.github.io/blog/2014/04/27/jpapabench1">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Gassa Blog" type="application/atom+xml">
@@ -66,45 +66,102 @@ Apr 27 2014 posted in jpapabench, paparazzi, real-time java My First Post &helli
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Blog Archive</h1>
+    
+      <h1 class="entry-title">[Paparazzi Analysis]: Getting Started With Jpapabench 1</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-04-27T02:57:28-04:00" pubdate data-updated="true">Apr 27<span>th</span>, 2014</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives">
 
 
+<div class="entry-content"><p>I am currently working on a project that related to <a href="http://wiki.paparazziuav.org/">Paparazzi</a>.
+Surprisingly, There are only few material available online. I decide to document all my exploration
+here. most of the things I am writing here is mainly from my code analysis,
+<a href="http://wiki.paparazziuav.org/wiki/Developer_Guide">Paparazzi wiki page</a> and its is related Java
+version project <a href="http://d3s.mff.cuni.cz/~malohlava/projects/jpapabench/">Jpapabench</a>.</p>
 
-  
-  <h2>2014</h2>
+<p>Jpapabench is a Java version of Paparazzi to provide a realistic application benchmark for
+evaluation variouse Java Virtual Machine (JVM), especilly for Real-time JVM. Since the code base of
+Paparazzi have been grown dramaticly to adapt to more wild hardware driver support, it is more
+easier to start with Jpapbench, it mirrors the function of Paparazzi, change the cyclic execution
+into tasks and execute them in seperated threads. Therefore, I decide to start with Jpapabench
+first.</p>
 
-<article>
-  
-<h1><a href="/blog/2014/04/27/jpapabench1/">[Paparazzi Analysis]: Getting Started With Jpapabench 1</a></h1>
-<time datetime="2014-04-27T02:57:28-04:00" pubdate><span class='month'>Apr</span> <span class='day'>27</span> <span class='year'>2014</span></time>
+<hr />
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/jpapabench/'>jpapabench</a>, <a class='category' href='/blog/categories/paparazzi/'>paparazzi</a>, <a class='category' href='/blog/categories/real-time-java/'>real-time java</a></span>
-</footer>
+<p>In Jpapabench, There are three sets of tasks, Autopilot, FBW(fly-by-wire) and sensing simulations as
+shown in</p>
 
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2014/04/22/who-am-i/">My First Post</a></h1>
-<time datetime="2014-04-22T13:27:16-04:00" pubdate><span class='month'>Apr</span> <span class='day'>22</span> <span class='year'>2014</span></time>
-
-
-</article>
-
+<p><span class='caption-wrapper'><img src="/images/jpapabench-pic/task-dependencies-flow.jpg" title="Jpapabench task dependency" ><span class='caption-text'>Jpapabench task dependency</span></span></p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Yin Yan</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-04-27T02:57:28-04:00" pubdate data-updated="true">Apr 27<span>th</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/jpapabench/'>jpapabench</a>, <a class='category' href='/blog/categories/paparazzi/'>paparazzi</a>, <a class='category' href='/blog/categories/real-time-java/'>real-time java</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://Gassa.github.io/blog/2014/04/27/jpapabench1/" data-via="" data-counturl="http://Gassa.github.io/blog/2014/04/27/jpapabench1/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/04/22/who-am-i/" title="Previous Post: My first post">&laquo; My first post</a>
+      
+      
+    </p>
+  </footer>
 </article>
 
 </div>

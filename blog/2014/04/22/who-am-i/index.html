@@ -96,6 +96,18 @@
 
 <p>After two hours setting up, I finally have my new blog established with Octopress, and I can claim I am done with Wordpress. It really drove me crazy. I never satisfied with its page layout and display format, especially when I embedded some code snippets. In addition, I am also missing some of you older articles, when I moving my previous blog from wordpress.com to my own VPS hosting. Now I am happy with Octopress, it is easy to set up, and its markdown engine is pretty intuitive, almost zero learning curvy required.</p>
 
+<p>The most convenient parts of Octopress is its integration with <a href="http://github.com">Github</a>. I can host my blog on Github pages, and edit it at anywhere as long as I have access to internet and git. On Octopress Documentation, there is an <a href="http://octopress.org/docs/deploying/github/">step-by-step instruction</a> that guide you to set up connection between your local repo and remote repo.</p>
+
+<p>First of all, create a git repo under github user account. To synchronize with remote repo, there is a configuration task,</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake setup_github_pages</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The rake task will ask you for a URL of the Github repo. Copy the SSH or HTTPS URL from your newly created repository (e.g. <code>git@github.com:username/username.github.io.git</code>) and paste it in as a response.</p>
+
+<p>Then, use <code>rake generate</code> to get the initialize default site at local, run <code>rake deploy</code> to push the site content to your repo and corresponding Github Page (e.g username.githit.io).</p>
+
 <h2>What&rsquo;s this blog about?</h2>
 
 <p>The purpose of this blog is to record the solution and thoughs realted to my work and study. The topic will mainly lay in Linux kernel development, internal Android system analysis, some programming language concepts and some my research project related stuff.</p>
@@ -139,6 +151,8 @@
     <p class="meta">
       
       
+        <a class="basic-alignment right" href="/blog/2014/04/27/jpapabench1/" title="Next Post: [Paparazzi Analysis]: Getting started with Jpapabench 1">[Paparazzi Analysis]: Getting started with Jpapabench 1 &raquo;</a>
+      
     </p>
   </footer>
 </article>
@@ -150,6 +164,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/04/27/jpapabench1/">[Paparazzi Analysis]: Getting Started With Jpapabench 1</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/04/22/who-am-i/">My First Post</a>
