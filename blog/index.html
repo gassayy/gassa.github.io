@@ -9,8 +9,8 @@
   <meta name="author" content="Yin Yan">
 
   
-  <meta name="description" content="I am currently working on a project that related to Paparazzi.
-Surprisingly, There are only few material available online. I decide to document all &hellip;">
+  <meta name="description" content="Cscope gets its list of what to index from a file called cscope.files.
+find pwd -name &ldquo;.c&rdquo; -o -name &ldquo;.h&rdquo; -o -name &ldquo;*. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -67,6 +67,49 @@ Surprisingly, There are only few material available online. I decide to document
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/02/25/code-navitation-with-vim/">Code_Navitation_with_Vim</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-02-25T16:55:26-05:00" pubdate data-updated="true">Feb 25<span>th</span>, 2015</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Cscope gets its list of what to index from a file called cscope.files.
+find <code>pwd</code> -name &ldquo;<em>.c&rdquo; -o -name &ldquo;</em>.h&rdquo; -o -name &ldquo;*.cpp&rdquo; > cscope.files</p>
+
+<p>Building Cscope Database:
+cscope -b -q -k</p>
+
+<p>ctags -L cscope.files
+<a href="http://www.fsl.cs.sunysb.edu/~rick/cscope.html">http://www.fsl.cs.sunysb.edu/~rick/cscope.html</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -172,7 +215,7 @@ shown in</p>
 
 <p>After getting everything working, I became interested in how all of the magic happens. The answer is in the <code>.git/config</code> file, when we run <code>rake setup_github_pages</code> and provide git repo url, <code>rake</code> clone the git repo as remote origin and push the generated site content into repo&rsquo;s master branch, then create another branch called &ldquo;source&rdquo; in same repo, all Octopress source code and blog markdown source code are pushed into origin source.</p>
 
-<p>Thus, I can use <code>rake generate &amp;&amp; rake deploy</code> to commit and push code to my blog repo&rsquo;s master branch, and run <code>git pull origin source</code> and <code>git push origion source</code> to pull the my repo&rsquo;s source code to any local repo, edit them and push them back to remote repo. Another takes away is <code>rake -T</code> will display all availible option for <code>rake</code></p>
+<p>Thus, I can use <code>rake generate &amp;&amp; rake deploy</code> to commit and push code to my blog repo&rsquo;s master branch, and run <code>git pull origin source</code> and <code>git push origion source</code> to pull the my repo&rsquo;s source code to any local repo, edit them and push them back to remote repo. Another taking away is <code>rake -T</code> that displays all availible option for <code>rake</code></p>
 
 <h2>What&rsquo;s this blog about?</h2>
 
@@ -197,6 +240,10 @@ shown in</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/02/25/code-navitation-with-vim/">Code_Navitation_with_Vim</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/04/27/jpapabench1/">[Paparazzi Analysis]: Getting Started With Jpapabench 1</a>
       </li>
     
@@ -217,7 +264,7 @@ shown in</p>
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - Yin Yan -
+  Copyright &copy; 2015 - Yin Yan -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
