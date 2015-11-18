@@ -1,0 +1,24 @@
+# Dependencies
+gems: [jekyll-paginate, jekyll-gist]
+markdown:         redcarpet
+highlighter:      pygments
+paginate:         5
+
+
+# Setup
+title:            Gassa's Blog
+tagline:          'Gassa Yan'
+description:      'Software engineer, <br />
+                   Phd. student at CSE department of SUNY Buffalo'
+url:              http://www.gassayy.com
+baseurl:          /
+
+author:
+  name:           'Gassa Yan'
+  url:            https://twitter.com/mdo
+
+# Custom vars
+version:          3.0.0
+
+github:
+  repo:           https://github.com/gassa
