@@ -8,8 +8,7 @@ paginate:         5
 # Setup
 title:            Gassa's Blog
 tagline:          'Gassa Yan'
-description:      'Software engineer, <br />
-                   Phd. student at CSE department of SUNY Buffalo'
+description:      'Embedded development in Java.'
 url:              http://www.gassayy.com
 baseurl:          /
 
@@ -17,7 +16,7 @@ author:
   name:           'Gassa Yan'
   url:            https://twitter.com/mdo
 
-# Custom vars
+#Custom vars
 version:          3.0.0
 
 github:
