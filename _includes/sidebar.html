@@ -3,10 +3,10 @@
     <div class="sidebar-about">
       <h1>
         <a class="site-name" href="{{ site.baseurl }}">
-          {{ site.title }}
+          {{ site.site_name }}
         </a>
       </h1>
-      <p class="lead">{{ site.description }}</p>
+      <!-- <p class="lead">{{ site.description }}</p> -->
     </div>
 
     <nav class="sidebar-nav">
@@ -30,6 +30,8 @@
       RTDroid project page </a>
     </nav>
 
-    <p>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
+    <span class="copyright-item">&copy; {{ site.time | date: '%Y' }}. 
+        themed with <a href="https://github.com/poole/hyde">Hyde</a>
+    </span>
   </div>
 </div>

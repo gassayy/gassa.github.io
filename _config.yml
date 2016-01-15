@@ -6,15 +6,21 @@ paginate:         5
 
 
 # Setup
-title:            Gassa's Blog
-tagline:          'Gassa Yan'
-description:      'Embedded development in Java.'
+site_name:            Gassa & Bruce's Bullshits
 url:              http://www.gassayy.com
 baseurl:          /
 
-author:
-  name:           'Gassa Yan'
-  url:            https://twitter.com/mdo
+
+authors:
+  gassa:
+    name: Gassa Yan
+    display_name: Gassa
+    email: gassa0617@gmail.com
+  bruce:
+    name: Bruce Li
+    display_name: Bruce
+    email: leilmyxwz@gmail.com 
+
 
 #Custom vars
 version:          3.0.0
