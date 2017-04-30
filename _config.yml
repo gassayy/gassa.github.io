@@ -6,7 +6,7 @@ paginate:         5
 
 
 # Setup
-site_name:            Gassa Yan
+site_name:            Gassa's Work Diary
 url:              http://www.gassayy.com
 baseurl:          /
 
@@ -23,7 +23,7 @@ authors:
 
 
 #Custom vars
-version:          3.0.0
+version:          3.4.3
 
 github:
   repo:           https://github.com/gassa
