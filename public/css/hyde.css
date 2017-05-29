@@ -74,9 +74,9 @@ html {
 .sidebar a {
     color: #fff;
 }
-.sidebar a.site-name{                                                                    
-    font-size: 50px;                                                                  
-} 
+.sidebar a.site-name{
+    font-size: 50px;
+}
 
 /* About section */
 .sidebar-about h1 {
@@ -258,7 +258,7 @@ a.sidebar-nav-item:focus {
     font-size: 60%;
 }
 
-img[alt=yinyan-pic] {width: 400px; margin:0 auto;}
+img[alt=yinyan-pic] {width: 800px; margin:0 auto;}
 
 .post-aux{font: italic 0.6em "PT Sans", Helvetica, Arial, sans-serif; color:#9a9a9a;}
 .post-title a:hover{text-decoration:none; margin: 0px}
