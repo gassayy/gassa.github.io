@@ -5,7 +5,7 @@ title: About me
 
 
 ![yinyan-pic]({{ site.url }}/downloads/blog1.jpg)
-![yinyan-pic]({{ site.url }}/downloads/blog2jpg)
+![yinyan-pic]({{ site.url }}/downloads/blog2.jpg)
 
 I am Yin Yan (阎寅), a PhD. student of Computer Science and Engineering
 Department at SUNY Buffalo. My research interest lies in operating system
