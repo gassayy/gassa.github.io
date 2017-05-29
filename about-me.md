@@ -5,6 +5,9 @@ title: About me
 
 ![yinyan-pic]({{ site.url }}/downloads/yinyan.jpg)
 
-I am Yin Yan (阎寅), a Ph.D. student of Computer Science Department at SUNY Buffalo. My
-research interest mainly lies in operating system design and programming
-language. 
+I am Yin Yan (阎寅), a PhD. student of Computer Science and Engineering
+Department at SUNY Buffalo. My research interest lies in operating system
+design and programming language. My PhD. reserch is about to enable real-time
+capability on Android platform, named
+[RTDroid](http://rtdroid.cse.buffalo.edu).
+
