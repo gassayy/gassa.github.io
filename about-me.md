@@ -16,11 +16,11 @@ RTDroid explores and presents our solution in each layer of the stock Android
 software stack as the following list:
 
 * __The application framework layer__: RTDroid provides a real-time programming
-  model for real-time application development. RTDroid's programming model
+  model for real-time application development. The RTDroid's programming model
   inherits the Android's event driven model and alters the conventional garbage
   collection to an on-stack memory management. The on-stack memory management
-  perseves memory bound for the object allocation in each component, assures
-  constant cost for memory reclamation and prevent dangling reference with
+  perseves memory bound for object allocation in each component, assures
+  constant cost for memory reclamation and prevents dangling reference by using
   runtime assginment checks.
 
   From a developer's point of view, our real-time components extend Android
@@ -29,7 +29,11 @@ software stack as the following list:
   parameter configuration. Thereby, the real-time parameters are used for
   scheduling validation and model checking.
 
-* __The runtime layer__: We have ported an existing real-time Java virtual machine, FijiVM, on Android-based Linux kernel for the real-time runtime environment. It has an Ahead-Of-Time compiler that takes Java bytecodes of a real-time application and application manifest file, runs scheduling analysis and generates a binary executable for the targeting device.
+* __The runtime layer__: We have ported an existing real-time Java virtual
+  machine, FijiVM, on Android-based Linux kernel for the real-time runtime
+  environment. It has an Ahead-Of-Time compiler that takes Java bytecodes of a
+  real-time application and application manifest file, runs scheduling analysis
+  and generates a binary executable for the targeting device.
 
 * __The operating system kernel layer__: We modified the Android customised
   Linux kernel compatible for Linux-RT patch, including a real-time scheduler,
