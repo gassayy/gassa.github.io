@@ -1,6 +1,6 @@
 ---
 layout: page
-title: My PhD. Thesis
+title: PhD. Thesis
 ---
 
 ![yinyan-pic]({{ site.url }}/downloads/blog2.jpg)
