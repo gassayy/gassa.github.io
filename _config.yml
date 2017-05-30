@@ -6,7 +6,7 @@ paginate:         5
 
 
 # Setup
-site_name:            Gassa's Work Diary
+site_name:            Gassa's Blog
 url:              http://www.gassayy.com
 baseurl:          /
 
@@ -19,7 +19,7 @@ authors:
   bruce:
     name: Bruce Li
     display_name: Bruce
-    email: leilmyxwz@gmail.com 
+    email: leilmyxwz@gmail.com
 
 
 #Custom vars
