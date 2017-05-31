@@ -258,12 +258,19 @@ a.sidebar-nav-item:focus {
     font-size: 60%;
 }
 
-img[alt=yinyan-pic] {width: 800px; margin:0 auto;}
-
 .post-aux{font: italic 0.6em "PT Sans", Helvetica, Arial, sans-serif; color:#9a9a9a;}
 .post-title a:hover{text-decoration:none; margin: 0px}
 .post{margin-bottom: 0px}
+.sidebar-breakline{
+    display: block; height: 1px; border: 0; border-top: 1px solid #ccc;
+    margin: 5px 0; padding: 0;
+}
 .breakline{
     display: block; height: 1px; border: 0; border-top: 1px solid #ccc;
     margin: 1em 0; padding: 0;
 }
+
+
+span.photo { display: block; margin: 0px; padding: 0px}
+/*span.photo img {width: 100%;}
+*/
