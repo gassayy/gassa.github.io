@@ -78,6 +78,10 @@ html {
     font-size: 50px;
 }
 
+.sidebar a.site-name:hover{
+    text-decoration: none;
+}
+
 /* About section */
 .sidebar-about h1 {
     color: #fff;

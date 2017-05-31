@@ -3,7 +3,7 @@ layout: post
 title:  SML v.s. Ocmal v.s. Haskell
 author: gassa
 category: Functional Programming
-tags: [study, research]
+tags: [study, programming]
 ---
 
 This post is comparing three functional languages from the language sematics
