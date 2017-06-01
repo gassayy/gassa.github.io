@@ -286,14 +286,41 @@ tbody tr:nth-child(odd) th {
  */
 
 .container {
-  max-width: 38rem;
   padding-left:  1rem;
   padding-right: 1rem;
   margin-left:  auto;
   margin-right: auto;
 }
 
+/* two columns home page */
+.container div.wrapper20{
+  max-width: 20rem;
+  float: left;
+  margin-right: 1em;
+}
 
+.container div.wrapper30{
+  max-width: 30rem;
+  float: left;
+  margin-right: 1em;
+}
+
+.container div.wrapper50{
+  max-width: 50rem;
+  float: left;
+  margin-right: 1em;
+}
+
+.container div.wrapper100{
+  max-width: 100rem;
+  float: left;
+  margin-right: 1em;
+}
+
+.clear { clear: both; }
+
+.debuger-border-black {border: 1px dotted black;}
+.debuger-border-red {border: 1px dotted red;}
 /*
  * Masthead
  *
