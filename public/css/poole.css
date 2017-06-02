@@ -323,9 +323,9 @@ tbody tr:nth-child(odd) th {
   margin-right: 1em;
 }
 
-.clear { clear: both; }
+.top-border {border-top: 1px dotted black; float: left;}
 
-.top-border {border-top: 1px dotted black;}
+.clear { clear: both; }
 
 .debuger-border-black {border: 1px dotted black;}
 .debuger-border-red {border: 1px dotted red;}
