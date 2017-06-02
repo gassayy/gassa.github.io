@@ -20,7 +20,7 @@ title: Tags
         <a class="post-title" href="{{ post.url }}">
       <li>
         {{ post.title }}
-      <small class="post-date">{{ post.date | date_to_string }}</small>
+      <small class="post-date">{{ page.date | date: '%B %d, %Y' }}</small>
       </li>
       </a>
       {% endfor %}
