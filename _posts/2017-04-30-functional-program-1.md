@@ -15,6 +15,3 @@ faciliate some programming idioms, but induces a slightly uglier code style.
 Lately, I will use Haskell as complementories to introduce laziness, purity,
 type classes and monads.
 
-
-
-

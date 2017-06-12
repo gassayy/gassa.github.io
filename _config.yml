@@ -27,3 +27,7 @@ version:          3.4.3
 
 github:
   repo:           https://github.com/gassa
+
+
+# Puglins
+mathjax: true # whether support mathjax
