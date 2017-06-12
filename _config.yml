@@ -6,9 +6,9 @@ paginate:         5
 
 
 # Setup
-site_name:            Gassa's Blog
-url:              http://www.gassayy.com
-baseurl:          /
+site_name:  Gassa's Blog
+url:        http://www.gassayy.com
+baseurl:    /
 
 
 authors:

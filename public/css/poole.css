@@ -384,6 +384,34 @@ tbody tr:nth-child(odd) th {
   margin-top: -.5rem;
   margin-bottom: 1rem;
   color: #9a9a9a;
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: normal;
+}
+
+.post-tag {
+  display: inline-block;
+  background: rgba(106,159,181,0.15);
+  padding: .1rem .5rem;
+  margin-right: .5rem;
+  border-radius: 4px;
+  color: #6a9fb5;
+  font-family: "PT Sans",Helvetica,Arial,sans-serif;
+  font-size: 0.9rem;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  text-decoration: none;
+}
+
+.post-tag:before {
+  content: "\f24d";
+  font-family: FontAwesome;
+}
+
+.post-tag:hover{
+  background: rgba(106,159,181,0.40);
+  text-decoration: none;
 }
 
 /* Related posts */

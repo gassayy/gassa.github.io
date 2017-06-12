@@ -25,7 +25,12 @@ YEAR-MONTH-DAT-title.MARKUP
 Where YEAR is a four-digit number, MONTH and DAY are both two-digit numbers,
 and MARKUP is the file extension representing the format used in the file.
 
-For example, 2011-12-31-new-years-eve-is-awesome.md
- or 2012-09-12-how-to-write-a-blog.
+For example, 2011-12-31-new-years-eve-is-awesome.md or
+2012-09-12-how-to-write-a-blog.
+
+CSS Ref.
+
+* CSS font awesome icon: http://astronautweb.co/snippet/font-awesome/
+
 
 
