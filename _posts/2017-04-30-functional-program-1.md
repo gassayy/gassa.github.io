@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  SML v.s. Ocmal v.s. Haskell
+title:  Functional Programming 1
 author: gassa
-category: Functional Programming
+category: Programming Language
 tags: [study, programming]
 ---
 
