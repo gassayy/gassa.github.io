@@ -87,6 +87,7 @@ how to create a cheddar project for application.
 
 
 ---
+
 ### References:
 [1] Applying new scheduling theory to static priority pre-emptive scheduling by
 N. Audsley, A. Burns, M. Richardson, K. Tindell and A.J. Wellings
