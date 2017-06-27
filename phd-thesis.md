@@ -14,10 +14,10 @@ including autopilot control, audio-based indoor localization, harmonized sound
 reproduction and *etc*.
 
 {% include image-row.html
-  img1="pics/juav.jpg" caption1="Fig.1 Java-based Autopilot Control"
-  img2="pics/turbine.jpg" caption2="Fig.2 Wind Turbine Monitor"
-  img3="pics/ci.jpg" caption3="Fig.3 Cochlear Implant Simulation"
-  main-caption="Targeting Applications:"
+  img1="pics/juav.jpg" caption1="Fig 1.1 Java-based Autopilot Control"
+  img2="pics/turbine.jpg" caption2="Fig 1.2 Wind Turbine Monitor"
+  img3="pics/ci.jpg" caption3="Fig 1.3 Cochlear Implant Simulation"
+  main-caption="Fig.1 Targeting Applications"
 %}
 
 
