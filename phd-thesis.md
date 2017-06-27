@@ -13,6 +13,20 @@ developing control or sensing applications on Android-equipped smartphones,
 including autopilot control, audio-based indoor localization, harmonized sound
 reproduction and *etc*.
 
+{% include image-row.html
+  img1="pics/juav.jpg" caption1="Fig.1 Java-based Autopilot Control"
+  img2="pics/turbine.jpg" caption2="Fig.2 Wind Turbine Monitor"
+  img3="pics/ci.jpg" caption3="Fig.3 Cochlear Implant Simulation"
+  main-caption="Targetting Applications:"
+%}
+
+
+{% include image.html
+            wrapper-class="image-wrapper400"
+            img="pics/arch.jpg"
+            title="RTDroid System Architecture"
+            caption="Fig.4 RTDroid System Architecture" %}
+
 ___RTDroid___ presents a real-time extension on Android for real-time
 applications, which require strict timing guantantee while still leveraging
 existing functionalities on Android. More specifically, RTDroid provides a
@@ -24,7 +38,7 @@ real-time kenel, a real-time Java virtual machine and redesgined real-time
 framework.
 
 
-### Real-Time Kernel and Real-Time Java Virtual Machine:
+### Real-Time Kernel and Real-Time Java Virtual Machine
 
 We ___partially___ patched the Android customised Linux kernel with Linux-RT
 patch, including real-time scheduling plocies, synchronisation primitives. We
@@ -40,6 +54,12 @@ source codes of RTDroid and generates a native binary file.
 
 
 ### Real-Time Programming Model
+
+{% include image.html
+            img="pics/app-manifest.jpg"
+            wrapper-class="image-wrapper400"
+            title="RTDroid Application Manifest Code Snippet"
+            caption="Fig.5 RTDroid Application Manifest Code Snippet" %}
 
 RTDroid provides a redesigned real-time framework implementation for
 application abstraction and communication APIs. It presents our solution as a
@@ -64,17 +84,23 @@ scheduling validation and model checking.
 
 ### Static Application Validation
 
+{% include image.html
+            img="pics/app-validation.jpg"
+            wrapper-class="image-wrapper500"
+            title="RTDroid Static Application Validation Workflow"
+            caption="Fig.6 RTDroid Static Application Validation Workflow" %}
+
 RTDroid integrates its application manifest with Cheddar*, a
 real-time scheduling analysis tool, for static application validation. We
 utilize real-time parameters configured in the RTDroid’s application manifest
 and feed these parameters into Cheddar for feasibility analysis, including
 schedulability, memory usage and communication channel overflow.
 
+---
 
 More details can be found at [RTDroid website](http://rtdroid.cse.buffalo.edu)
 and the full version of my thesis will be available soon.
 
----
-\* For more information about
-[Cheddar](http://beru.univ-brest.fr/~singhoff/cheddar/).
+
+\* For more information about [Cheddar](http://beru.univ-brest.fr/~singhoff/cheddar/).
 
