@@ -491,32 +491,20 @@ a.pagination-item:hover {
   }
 }
 
-img[alt$=">"] {
-  float:right;
-  width: 300px
-}
-
-img[alt$="<"] {
-  float:left;
-  width: 300px
-}
-
-img[alt$="<>"] {
-    display: block;
-    max-width: 100%;
-    height: auto;
-    margin: auto;
-    float: none!important;
-}
-
-.image-wrapper { text-align: center; margin-bottom: 0.5rem; }
-.image-wrapper400{ width: 28rem }
-.image-wrapper500{ width: 28rem }
+/* image.html */
+.image-wrapper { text-align: center; margin: 0.5rem 0rem 0rem 0.5rem; }
+.image-wrapper img { margin-bottom: 0rem  }
+.image-wrapper400{ width: 20rem }
+.image-wrapper500{ width: 20rem }
 
 @media (min-width: 30em) {
-  .image-wrapper { text-align: center; float: right; margin-bottom: 0.5rem; }
+  .image-wrapper {
+    text-align: center;
+    float: right;
+    margin: 0.5rem 0rem 0rem 0.5rem;
+  }
   .image-wrapper400{ width: 20rem }
-  .image-wrapper500{ width: 32rem }
+  .image-wrapper500{ width: 28rem }
 }
 
 
@@ -526,12 +514,12 @@ img[alt$="<>"] {
     color: #808080;
 }
 
-.image-outerwrapper{ max-width: 100%; margin: auto; }
+/* image-row.html */
+.image-outerwrapper{ max-width: 100%; margin: auto; text-align: center; }
 .image-innerwrapper{
-    max-width: 12rem;
+    max-width: 14rem;
     display: inline-block;
-    margin: 2px auto;
-    text-align: center;
+    margin: 2px;
   }
-.image-innerwrapper img { margin: 2px auto; }
+.image-innerwrapper img {margin-bottom: 0rem; }
 .image-innerwrapper span { font-size: 0.75rem; }
