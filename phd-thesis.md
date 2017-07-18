@@ -1,6 +1,6 @@
 ---
 layout: page
-title: PhD. Thesis
+title: PhD Thesis
 ---
 
 Android is a versatile and attractive environment for developing embedded
