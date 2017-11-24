@@ -1,5 +1,5 @@
 # Dependencies
-gems: [jekyll-paginate, jekyll-gist]
+plugins: [jekyll-paginate, jekyll-gist]
 markdown:         kramdown
 highlighter:      rouge
 paginate:         5
