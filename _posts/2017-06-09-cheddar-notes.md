@@ -2,6 +2,7 @@
 layout: post
 title:  Real-Time Scheduling with Cheddar
 author: gassa
+comments: true
 category: Notes
 tags: [cheddar, sheduling analysis, real-time]
 ---

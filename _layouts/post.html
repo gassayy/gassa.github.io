@@ -4,7 +4,7 @@ layout: default
 
 <div class="post">
   <h1 class="post-title">
-    {{ page.title }}
+    <a href="{{ page.url }}">{{ page.title }}</a>
     <span class="post-date">{{page.date | date: '%B %d, %Y'}} by
       {{ site.authors[page.author].display_name }}
     </span> <!-- the end of post-date -->
@@ -24,6 +24,29 @@ layout: default
   <hr class="breakline" />
   {{ content }}
 </div>
+
+{% if page.comments %}
+
+<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = '{{site.url}}/{{page.url}}';  
+        this.page.identifier = 'blogs{{page.id | | replace:'/','-'}}';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');
+        
+        s.src = 'https://gassayan.disqus.com/embed.js';  // IMPORTANT: Replace EXAMPLE with your forum shortname!
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the 
+    <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+{% endif %}
 
 
 <!--
