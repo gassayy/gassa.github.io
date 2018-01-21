@@ -1,19 +1,4 @@
-# Dependencies
-# plugins: [jekyll-paginate, jekyll-gist]
-markdown:         kramdown
-highlighter:      rouge
-paginate:         5
-
-plugins: 
- - jekyll-paginate
- - jekyll-gist
-
-# Setup
-site_name:  Gassa's Blog
-url:        http://www.gassayy.com
-baseurl:    /
-
-
+# Author Information
 authors:
   gassa:
     name: Gassa Yan
@@ -24,13 +9,18 @@ authors:
     display_name: Bruce
     email: leilmyxwz@gmail.com
 
+# Setup
+site_name:  Gassa's Blog
+url:        http://www.gassayy.com
+baseurl:    /
 
-#Custom vars
-version:          3.4.3
+# Markdown Rendering
+kramdown: 
+    parse_block_html: true
 
-github:
-  repo:           https://github.com/gassa
+# Site settings
+permalink: /blog/:year/:month/:day/:title/
 
-
-# Puglins
-mathjax: true # whether support mathjax
+# important since the site is compiled
+# on Github's servers
+timezone: America/New_York
