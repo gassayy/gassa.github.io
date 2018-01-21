@@ -13,7 +13,7 @@ layout: default
   {% if page.tags %}
   {% for tag in page.tags %}
   <span class="post-tag">
-  <a href="{{ site.url }}/archives/tags.html#{{ tag | slugify}}">
+  <a href="{{ site.url }}/tags/#{{ tag | slugify}}">
   {{ tag }}
   </a>
   </span>

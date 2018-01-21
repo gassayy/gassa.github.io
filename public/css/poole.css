@@ -393,7 +393,7 @@ tbody tr:nth-child(odd) th {
   display: inline-block;
   background: rgba(106,159,181,0.15);
   padding: .1rem .5rem;
-  margin-right: .5rem;
+  margin: .25rem .25rem;
   border-radius: 4px;
   color: #6a9fb5;
   font-family: "PT Sans",Helvetica,Arial,sans-serif;

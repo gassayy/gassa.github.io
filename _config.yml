@@ -1,4 +1,13 @@
-# Author Information
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+
 authors:
   gassa:
     name: Gassa Yan
@@ -9,18 +18,69 @@ authors:
     display_name: Bruce
     email: leilmyxwz@gmail.com
 
-# Setup
-site_name:  Gassa's Blog
-url:        http://www.gassayy.com
-baseurl:    /
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+description: >- # this means to ignore newlines until "baseurl:"
+    Gassa's Blog
+baseurl: ""
+url: http://www.gassayy.com 
 
-# Markdown Rendering
-kramdown: 
-    parse_block_html: true
+# Build settings
+plugins:
+  - jekyll-feed
+  - jekyll-paginate 
+
+markdown: kramdown
+excerpt_separator: "<!-- more -->"
+sass:
+  style: compressed
+  sass_dir: _scss    
+paginate: 5
+paginate_path: '/blog/page:num'
 
 # Site settings
-permalink: /blog/:year/:month/:day/:title/
-
-# important since the site is compiled
-# on Github's servers
+permalink: pretty
+highlighter: pygments 
 timezone: America/New_York
+
+#comments :
+#    provider : disqus
+#    disqus :
+#      short_name : jekyllbootstrap
+#    livefyre :
+#      site_id : 123
+#    intensedebate :
+#      account : 123abc
+#    facebook :
+#      appid : 123
+#      num_posts: 5
+#      width: 580
+#      colorscheme: light
+
+tag_page_layout: tag_page
+tag_page_dir: tag
+
+tag_feed_layout: tag_feed
+tag_feed_dir: tag
+
+tag_page_data:
+  sitemap: false
+
+#google_analytics_token: 'UA-00000000-1' 
+#disqus_short_name: 'your_short_name' 
+
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
