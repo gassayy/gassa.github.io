@@ -10,10 +10,8 @@ tags: [scala, future]
 
 _Updated @ May, 8th 2018_
 
- This article was writen in 2013, it briefly document what I have learned about Scala Future.
-
- enumerates a list of code examples using the `Future[T]` type in Scala. I added the later part to discuss more thoughs about how to use `Future[T]` in practice, including Future composition, error handling and monadic operations.
-
+This article was writen in 2013, it briefly documents what I have learned about Scala Future.
+ 
 By the definition, The `Future[T]` type (future type ) is a ***container*** type that presents a block of asynchronous computations (future computations) resulting in a value of type T (future value).
 
 - The `Future[T]` is defined as a scala trait, similar to Java interface. 
