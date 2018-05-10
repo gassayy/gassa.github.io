@@ -34,7 +34,7 @@ The `scala.concurrent` package defines the `ExecutionContext` as a scala trait w
 
 In Scala, the `ExecutionContext` companion object contains an default execution context named ***global***, which internally uses a ForkJoinPool instance. In practice, the creation of `ExecutionContext` is normally  transparent to developers since application framework or the management component of the execution environment may abstract it away. For example, developers can import the default global execution context in the `scala.concurrent` package.
 
-For learning purpose, The following code[^The code example is from a book called "Learning Concurrent Programming in Scala"] shows how to fork an execution context with two thread worker and create a new execution context by calling the `fromExecutorService` method.
+For learning purpose, The following code [^1] shows how to fork an execution context with two thread worker and create a new execution context by calling the `fromExecutorService` method.
 
 ```scala
 object ExecutionContextCreate extends App { 
@@ -74,3 +74,6 @@ object FutureExample1 extends App {
   }
 }
 ```
+
+====================================
+[^1] The code example is from a book called "Learning Concurrent Programming in Scala".
