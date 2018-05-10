@@ -61,7 +61,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 
 object FutureExample1 extends App {
   override def main(args: Array[String]): Unit = {
-	  val f = Future {
+    val f = Future {
       TimeUnit.SECONDS.sleep(5)
       println("Hello Future")
     }
