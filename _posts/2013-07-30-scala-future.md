@@ -14,17 +14,16 @@ This article was writen in 2013, it briefly documents what I have learned about 
  
 By the definition, The `Future[T]` type (future type ) is a ***container*** type that presents a block of asynchronous computations (future computations) resulting in a value of type T (future value).
 
-- The `Future[T]` is defined as a scala trait, similar to Java interface. 
-- The future computation is started by calling the `apply` method on the `Future` companion object.
-
-The following code are from the `scala.concurrent` package that defines the future tpye and future computations.
-
 ```scala
 traits Future[T]
 def apply[T](b: =>T)(implicit ex: ExecutionContext): Future[T]
 ```
 
-The `apply` method take a ***by-name*** parameter of the type [T]. Developers can start a future computation with an anonymous function, e.g., `val f = Future { "Hello World" }`. While the `apply` mehtod also takes an implicit ExecutionContext parameter, analogous to the Java's `Executor`, It abstracts over where and when threads executed.
+- The `Future[T]` is defined as a scala trait, similar to Java interface. 
+- The future computation is started by calling the `apply` method on the `Future` companion object.
+
+
+The `apply` method takes a ***by-name*** parameter of the type [T]. Developers can start a future computation with an anonymous function, e.g., `val f = Future { "Hello World" }`. While the `apply` mehtod also takes an implicit ExecutionContext parameter, analogous to the Java's `Executor`, It abstracts over where and when threads executed.
 
 ### Execution Context
 
