@@ -75,7 +75,5 @@ object FutureExample1 extends App {
 }
 ```
 
-<br >
-
-<a name="footnote1">[1]</a> The code example is from a book called [Learning Concurrent Programming in Scala] (http://www.packtpub.com/application-development/learning-concurrent-programming-scala-second-edition)
+<a name="footnote1">[1]</a> The code example is from a book called "Learning Concurrent Programming in Scala" (http://www.packtpub.com/application-development/learning-concurrent-programming-scala-second-edition)
 
