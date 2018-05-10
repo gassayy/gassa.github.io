@@ -75,5 +75,5 @@ object FutureExample1 extends App {
 }
 ```
 
-====================================
-[^1] The code example is from a book called "Learning Concurrent Programming in Scala".
+======
+[1] The code example is from a book called "Learning Concurrent Programming in Scala".
