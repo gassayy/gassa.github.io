@@ -55,6 +55,8 @@ tag_feed_dir: tag
 tag_page_data:
   sitemap: false
 
+highlighter: rouge
+
 #google_analytics_token: 'UA-00000000-1' 
 disqus_short_name: 'gassayan' 
 
