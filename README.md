@@ -1,6 +1,6 @@
-This blog is built with jekyll, and co-authorized by Gassa Yan and Bruce Li.
+This blog is built with jekyll.
 
-Jekyll cheet sheet commnads:
+### Jekyll cheet sheet commnads:
 
 > jekyll build
 - The current folder will be generated into ./_site, which contains generated static web html, css, js and etc.
