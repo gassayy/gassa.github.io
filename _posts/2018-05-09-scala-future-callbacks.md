@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Scala - Future Callbacks and Exception Handling
+title: Scala - Future Callbacks
 author: gassa
 comments: true
 category: Scala
