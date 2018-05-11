@@ -1,19 +1,18 @@
 This blog is built with jekyll, and co-authorized by Gassa Yan and Bruce Li.
 
 Jekyll cheet sheet commnads:
-$ jekyll build
-# => The current folder will be generated into ./_site, which contains
-generated static web html, css, js and etc.
 
-$ jekyll build --destination <destination>
-# => The current folder will be generated into <destination>
+> $ jekyll build
+- The current folder will be generated into ./_site, which contains generated static web html, css, js and etc.
 
-$ jekyll build --source <source> --destination <destination>
-# => The <source> folder will be generated into <destination>
+> $ jekyll build --destination <destination>
+- The current folder will be generated into <destination>
 
-$ jekyll build --watch
-# => The current folder will be generated into ./_site,
-#    watched for changes, and regenerated automatically.
+> $ jekyll build --source <source> --destination <destination>
+- The <source> folder will be generated into <destination>
+
+> $ jekyll build --watch
+- The current folder will be generated into ./_site, watched for changes, and regenerated automatically.
 
 $ jekll serve
 # => Preview the local site at http://127.0.0.1:4000
