@@ -14,6 +14,12 @@ This article was writen in 2013, it briefly documents what I have learned about 
  
 By the definition, The `Future[T]` type (future type ) is a ***container*** type that presents a block of asynchronous computations (future computations) resulting in a value of type T (future value).
 
+### Futures as Containers
+Common exampls of operations represented by future are
+- An remote procedure call to a remote service 
+- Time-consuming computations
+- I/O operations
+
 ```scala
 traits Future[T]
 def apply[T](b: =>T)(implicit ex: ExecutionContext): Future[T]
@@ -54,7 +60,7 @@ def execute(body: =>Unit) = ExecutionContext.global.execute(
 
 ### Future Callbacks
 
-There are a number of callbacks defined in the `Future` companion object, all callbacks are non-blocking functions. After a callback is installed to a future computation, it gurantee to be invoked eventually, as the following code shows.
+By default, Future is non-blocking, it provides a set of callbacks to receive its result in the `Future` companion object. After a callback is installed to a future computation, it gurantee to be invoked eventually, as the following code shows.
 
 ```scala
 import scala.concurrent.ExecutionContext.Implicits.global 
@@ -67,7 +73,6 @@ object FutureExample1 extends App {
     }
     println("Hello World")
     
-    //Non blocking callback
     f.onComplete { case _ => println }
     println("Future.onComplete is non-blocking!")
     Thread.sleep(10000)
