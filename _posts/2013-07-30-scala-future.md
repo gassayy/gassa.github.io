@@ -27,9 +27,9 @@ The `apply` method takes a ***by-name*** parameter of the type [T]. Developers c
 
 ### Execution Context
 
-The `scala.concurrent` package defines the `ExecutionContext` as a scala trait with a companion object. the companion object implements an execute(Runnable) method and a reportFailure(Throwable) method:
+The `scala.concurrent` package defines the `ExecutionContext` as a scala trait with a companion object. The companion object implements an execute(Runnable) method and a reportFailure(Throwable) method:
 
-+ ***executor(Runnable)*** is similar to the execute() function of the Java Executor, which takes a runnable object as a parameter and schedule the runnable with its context.
++ ***executor(Runnable)*** is similar to the execute() function of the Java Executor, which takes a runnable object as a parameter and schedules the runnable with its context.
 + ***reportFailure(Throwable)*** takes a `Throwable` object, it is called whenever some task throws an exception. 
 
 In Scala, the `ExecutionContext` companion object contains an default execution context named ***global***, which internally uses a ForkJoinPool instance. In practice, the creation of `ExecutionContext` is normally  transparent to developers since application framework or the management component of the execution environment may abstract it away. For example, developers can import the default global execution context in the `scala.concurrent` package.
