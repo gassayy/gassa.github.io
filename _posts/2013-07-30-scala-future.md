@@ -4,7 +4,7 @@ title: Scala - Future
 author: gassa
 comments: true
 category: Scala
-tags: [scala, future]
+tags: [programming]
 ---
 
 
@@ -80,5 +80,5 @@ object FutureExample1 extends App {
 }
 ```
 
-<a name="footnote1">[1]</a> The code example is from a book called "Learning Concurrent Programming in Scala" (http://www.packtpub.com/application-development/learning-concurrent-programming-scala-second-edition)
+<a name="footnote1">[1]</a> The code example is from book "Learning Concurrent Programming in Scala" (http://www.packtpub.com/application-development/learning-concurrent-programming-scala-second-edition)
 
