@@ -1,0 +1,32 @@
+I"L<p>Multiarch is a term used to refer to the capability of a system to install and
+run applications of multiple different binary targets on a same system. For
+example, running a i386-linux-gnu application on an amd64-linux-gnu system. It
+also simplifies cross-building, where foreign-architecture libraries and
+headers are needed on the system during linking.</p>
+
+<p>It is avaiable since Ubuntu 14.04. After we install system, the default
+archtitecture will likely be amd64 as long as the machine is not an antique.</p>
+
+<p>To check the local architecture, <code class="highlighter-rouge">dpkg --print-architecture</code>.</p>
+
+<p>To add a new architectur, e.g., i386, <code class="highlighter-rouge">dpkg --add-architecture i386</code>.</p>
+
+<p>To check list foreign architectures, <code class="highlighter-rouge">dpkg --print-foreign-architectures</code>.</p>
+
+<p>To remove an architecture, <code class="highlighter-rouge">dpkg --remove-architecture i386</code>.</p>
+
+<p>The package manager (apt) is multiarch-aware, it supports <code class="highlighter-rouge">apt-get install
+package:architecture</code>. To install build-dependencies of a package before
+cross-build, <code class="highlighter-rouge">apt-get build-dep -a &lt;arch&gt; &lt;package&gt;</code>.</p>
+
+<p>For example, using the Android SDK requires 32-bit packages. There was a heck
+to get 32-bits packages by using <code class="highlighter-rouge">apt-get install ia32-libs</code>. It install all
+ia32 packages and has been replaced by MultiArch since Ubuntu 14.04.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dpkg <span class="nt">--add-architecture</span> i386
+apt-get update
+apt-get <span class="nb">install </span>libstdc++6:i386 libgcc1:i386 <span class="se">\</span>
+                zlib1g:i386 libncurses5:i386
+</code></pre></div></div>
+
+:ET

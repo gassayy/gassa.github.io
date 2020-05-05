@@ -1,0 +1,76 @@
+I"�!<p><em>Updated @ May, 8th 2018</em></p>
+
+<p>This article was writen in 2013, it briefly documents what I have learned about Scala Future.</p>
+
+<p>By the definition, The <code class="highlighter-rouge">Future[T]</code> type (future type ) is a <strong><em>container</em></strong> type that presents a block of asynchronous computations (future computations) resulting in a value of type T (future value).</p>
+
+<h3 id="futures-as-containers">Futures as Containers</h3>
+<p>Common exampls of operations represented by future are</p>
+<ul>
+  <li>An remote procedure call to a remote service</li>
+  <li>Time-consuming computations</li>
+  <li>I/O operations</li>
+</ul>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">traits</span> <span class="nc">Future</span><span class="o">[</span><span class="kt">T</span><span class="o">]</span>
+<span class="k">def</span> <span class="nf">apply</span><span class="o">[</span><span class="kt">T</span><span class="o">](</span><span class="n">b</span><span class="k">:</span> <span class="o">=&gt;</span><span class="n">T</span><span class="o">)(</span><span class="k">implicit</span> <span class="n">ex</span><span class="k">:</span> <span class="kt">ExecutionContext</span><span class="o">)</span><span class="k">:</span> <span class="kt">Future</span><span class="o">[</span><span class="kt">T</span><span class="o">]</span>
+</code></pre></div></div>
+
+<ul>
+  <li>The <code class="highlighter-rouge">Future[T]</code> is defined as a scala trait, similar to Java interface.</li>
+  <li>The future computation is started by calling the <code class="highlighter-rouge">apply</code> method on the <code class="highlighter-rouge">Future</code> companion object.</li>
+</ul>
+
+<p>The <code class="highlighter-rouge">apply</code> method takes a <strong><em>by-name</em></strong> parameter of the type [T]. Developers can start a future computation with an anonymous function, e.g., <code class="highlighter-rouge">val f = Future { "Hello World" }</code>. While the <code class="highlighter-rouge">apply</code> mehtod also takes an implicit ExecutionContext parameter, analogous to the Java’s <code class="highlighter-rouge">Executor</code>, It abstracts over where and when threads executed.</p>
+
+<h3 id="execution-context">Execution Context</h3>
+
+<p>The <code class="highlighter-rouge">scala.concurrent</code> package defines the <code class="highlighter-rouge">ExecutionContext</code> as a scala trait with a companion object. The companion object implements an execute(Runnable) method and a reportFailure(Throwable) method:</p>
+
+<ul>
+  <li><strong><em>executor(Runnable)</em></strong> is similar to the execute() function of the Java Executor, which takes a runnable object as a parameter and schedules the runnable with its context.</li>
+  <li><strong><em>reportFailure(Throwable)</em></strong> takes a <code class="highlighter-rouge">Throwable</code> object, it is called whenever some task throws an exception.</li>
+</ul>
+
+<p>In Scala, the <code class="highlighter-rouge">ExecutionContext</code> companion object contains an default execution context named <strong><em>global</em></strong>, which internally uses a ForkJoinPool instance. In practice, the creation of <code class="highlighter-rouge">ExecutionContext</code> is normally  transparent to developers since application framework or the management component of the execution environment may abstract it away. For example, developers can import the default global execution context in the <code class="highlighter-rouge">scala.concurrent</code> package.</p>
+
+<p>For learning purpose, The following code <sup><a href="#footnote1">1</a></sup> shows how to fork an execution context with two thread worker and create a new execution context by calling the <code class="highlighter-rouge">fromExecutorService</code> method.</p>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">object</span> <span class="nc">ExecutionContextCreate</span> <span class="k">extends</span> <span class="nc">App</span> <span class="o">{</span> 
+  <span class="k">val</span> <span class="nv">pool</span> <span class="k">=</span> <span class="k">new</span> <span class="nv">forkjoin</span><span class="o">.</span><span class="py">ForkJoinPool</span><span class="o">(</span><span class="mi">2</span><span class="o">)</span>
+  <span class="k">val</span> <span class="nv">ctx</span> <span class="k">=</span> <span class="nv">ExecutionContext</span><span class="o">.</span><span class="py">fromExecutorService</span><span class="o">(</span><span class="n">pool</span><span class="o">)</span>
+  <span class="nv">etc</span><span class="o">.</span><span class="py">execute</span><span class="o">(</span><span class="k">new</span> <span class="nc">Runnable</span> <span class="o">{</span> 
+  	<span class="k">def</span> <span class="nf">run</span><span class="o">()</span> <span class="k">=</span> <span class="nf">println</span><span class="o">(</span><span class="s">"Running on the execution context"</span><span class="o">)</span>
+  <span class="o">})</span>
+  <span class="nv">Thread</span><span class="o">.</span><span class="py">sleep</span><span class="o">(</span><span class="mi">5000</span><span class="o">)</span>
+<span class="o">}</span>
+<span class="cm">/* A more concise version */</span>
+<span class="k">def</span> <span class="nf">execute</span><span class="o">(</span><span class="n">body</span><span class="k">:</span> <span class="o">=&gt;</span><span class="nc">Unit</span><span class="o">)</span> <span class="k">=</span> <span class="nv">ExecutionContext</span><span class="o">.</span><span class="py">global</span><span class="o">.</span><span class="py">execute</span><span class="o">(</span> 
+  <span class="k">new</span> <span class="nc">Runnable</span> <span class="o">{</span> <span class="k">def</span> <span class="nf">run</span><span class="o">()</span> <span class="k">=</span> <span class="n">body</span> <span class="o">}</span> 
+<span class="o">)</span> 
+</code></pre></div></div>
+
+<h3 id="future-callbacks">Future Callbacks</h3>
+
+<p>By default, Future is non-blocking, it provides a set of callbacks to receive its result in the <code class="highlighter-rouge">Future</code> companion object. After a callback is installed to a future computation, it gurantee to be invoked eventually, as the following code shows.</p>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nn">scala.concurrent.ExecutionContext.Implicits.global</span> 
+
+<span class="k">object</span> <span class="nc">FutureExample1</span> <span class="k">extends</span> <span class="nc">App</span> <span class="o">{</span>
+  <span class="k">override</span> <span class="k">def</span> <span class="nf">main</span><span class="o">(</span><span class="n">args</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[</span><span class="kt">String</span><span class="o">])</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+    <span class="k">val</span> <span class="nv">f</span> <span class="k">=</span> <span class="nc">Future</span> <span class="o">{</span>
+      <span class="nv">TimeUnit</span><span class="o">.</span><span class="py">SECONDS</span><span class="o">.</span><span class="py">sleep</span><span class="o">(</span><span class="mi">5</span><span class="o">)</span>
+      <span class="nf">println</span><span class="o">(</span><span class="s">"Hello Future"</span><span class="o">)</span>
+    <span class="o">}</span>
+    <span class="nf">println</span><span class="o">(</span><span class="s">"Hello World"</span><span class="o">)</span>
+    
+    <span class="nv">f</span><span class="o">.</span><span class="py">onComplete</span> <span class="o">{</span> <span class="k">case</span> <span class="k">_</span> <span class="k">=&gt;</span> <span class="n">println</span> <span class="o">}</span>
+    <span class="nf">println</span><span class="o">(</span><span class="s">"Future.onComplete is non-blocking!"</span><span class="o">)</span>
+    <span class="nv">Thread</span><span class="o">.</span><span class="py">sleep</span><span class="o">(</span><span class="mi">10000</span><span class="o">)</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><a name="footnote1">[1]</a> The code example is from a book called “Learning Concurrent Programming in Scala” (http://www.packtpub.com/application-development/learning-concurrent-programming-scala-second-edition)</p>
+
+:ET

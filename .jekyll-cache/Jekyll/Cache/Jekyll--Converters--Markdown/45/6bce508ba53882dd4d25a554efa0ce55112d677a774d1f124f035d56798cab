@@ -1,0 +1,11 @@
+I"�<p>install linux image to a SD card with progression information</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dd if=$input | pv | dd of=$output
+</code></pre></div></div>
+
+<p>AM335x ARM® Cortex™-A8 Bootloader</p>
+
+<p>https://www.twam.info/hardware/beaglebone-black/u-boot-on-beaglebone-black
+http://processors.wiki.ti.com/index.php/Linux_Core_U-Boot_User%27s_Guide
+https://wiki.sel4.systems/Hardware/Beaglebone</p>
+:ET

@@ -25,8 +25,8 @@ authors:
 # in the templates via {{ site.myvariable }}.
 description: >- # this means to ignore newlines until "baseurl:"
     Gassa's Blog
-baseurl: ""
-url: http://www.gassayy.com 
+
+url: https://gassa.github.io
 
 # Build settings
 plugins:
@@ -64,11 +64,18 @@ disqus_short_name: 'gassayan'
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+exclude:
+- .sass-cache/
+- .jekyll-cache/
+- gemfiles/
+- Gemfile
+- Gemfile.lock
+- node_modules/
+- vendor/bundle/
+- vendor/cache/
+- vendor/gems/
+- vendor/ruby/
+
+include:
+- .htaccess
+- node_modules/uglifier/index.js
