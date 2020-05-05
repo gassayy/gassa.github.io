@@ -3,44 +3,21 @@ layout: default
 title: Home
 ---
 
-<div class="wrapper100">
-<h2> Who Am I? </h2>
-
-<p> I am Yin Yan (阎寅), a PhD student in Computer Science and Engineering
-Department at SUNY Buffalo. My research interest lies in the intersection
-between the operating system and programming language runtime. My research
-project, RTDroid, is about to enable real-time capability on Android platform,
-you can find more details on <a href="{{ site.url }}/phd-thesis/index.html">my thesis page.
-</a></p>
-
-<p>Rather than a researcher in computer science, I prefer to identifying myself
-as a programmer. I explore new techniques and different solutions for problems
-encountered in my research and study. I enjoy the process of learning a new
-technique or finding a solution for a particular problem. However, the most
-exciting part of my research is to trace the rationale behind the solution or
-the technique, <i>i.e.</i>, the reason why a solution works better than others.</p>
-
-<hr /> </div> <!-- the end of who-am-i div -->
-
-<div class="wrapper100">
-<h2> What Is This Blog About? </h2>
-
-<p> This blog serves a memo of my research and work. There are three types of
-articles: 1) technical notes documenting solutions for various problems, 2)
-study summaries of my learning process, 3) misc articles, everything else goes
-here. </p>
-
-<hr /> </div> <!-- the end of this-blog-about div -->
-
-<div class="wrapper100">
-<h2> Other Activities in My Life </h2>
-
-<ul>
-<li>Body building / Basketball / Soccer</li>
-<li>Hiking / Biking / Fishing</li>
-<li>Photographing / Reading</li>
-</ul>
-</div> <!-- the end of activities div -->
-
+<div class="tags-expo">
+    <div class="tags-expo-section">
+        {% for category in site.categories %}
+        <h2 id="{{ category[0] | slugify }}">{{ category[0] }}</h2>
+        <ul class="tags-expo-posts">
+        {% for post in category[1] %}
+        <li>
+            <a class="post-title" href="{{ post.url }}">
+            {{ post.title }} </a>
+            <small class="post-date">@ {{ post.date | date: "%B %d, %Y" }}</small>
+        </li>
+        {% endfor %}
+        </ul>
+        {% endfor %}
+    </div>
+</div>
 
 <div class="clear"></div>
