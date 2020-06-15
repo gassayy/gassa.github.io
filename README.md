@@ -2,19 +2,22 @@ This blog is built with jekyll.
 
 ### Jekyll Cheet Sheet:
 
-> jekyll build
+`jekyll build`:
 - The current folder will be generated into ./_site, which contains generated static web html, css, js and etc.
 
-> jekyll build --destination <destination>
+`jekyll build --destination <destination>`
 - The current folder will be generated into <destination>
 
-> jekyll build --source <source> --destination <destination>
+`jekyll build --source <source> --destination <destination>`
 - The <source> folder will be generated into <destination>
 
-> jekyll build --watch
+`jekyll build --watch`
 - The current folder will be generated into ./_site, watched for changes, and regenerated automatically.
 
-> jekll serve
+`jekyll clean`
+- clean up generated html site and jekyll cache
+
+`jekll serve`
 Preview the local site at http://127.0.0.1:4000
 
 ### How to Create A Post:
