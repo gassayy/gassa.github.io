@@ -71,7 +71,7 @@ For example, `http_requests_total` records the number of HTTP request made to th
 
 ![query results]({{ site.url }}/pics/prometheus/query_results.png)
 
-If we want to plot a curvy that shows a total number of requests, we can use `sum()` to aggregate them, i.e., `sum(http_requests_total{method="get", handler!="prometheus"})`. In practice, we can do more interesting queries by leverage PromQL build-in functions, [the next post]({% 2019-05-10-prometheus-promql.md %}) will introduce PromQL queries in details.
+If we want to plot a curvy that shows a total number of requests, we can use `sum()` to aggregate them, i.e., `sum(http_requests_total{method="get", handler!="prometheus"})`. In practice, we can do more interesting queries by leverage PromQL build-in functions, [the next post]({% post_url 2019-05-10-prometheus-promql %}) will introduce PromQL queries in details.
 
 
 
