@@ -7,31 +7,35 @@ category: DevOps
 tags: [prometheus]
 ---
 
-This article summrized my understanding of Promethues and PromQL. It is not mean to cover everything since [prometheus.io](https://prometheus.io/docs/introduction/overview/) provides detailed information, but aims to give a bump start to use Prometheus in system/application monitoring.
+This article summarized Prometheus basic concepts for a quick guidance. More details is available at [https://prometheus.io/docs/](https://prometheus.io/docs/).
 
 
 ## Run your local environment 
+
+Prometheus code base has a local bundle for demonstration purpose. The following commands will download public docker images and running them on docker.
 
 ```shell
 git clone https://github.com/prometheus/prometheus.git
 cd prometheus
 docker-compose up -d
+
+# http://localhost:9090            - Prometheus UI
+# http://localhost:9100/metrics    - Node Export metrics
+# http://localhost:8080/containers - Container Advisor
+# http://localhost:9093            - Alert Manager
+# http://localhost:3000            - Grafana
 ```
 
-## Basic concepts: Job, Instance
+## Job and Instance
 
-An ***instance*** is an endpoint where Prometheus can scraping. A collection of instances with the similar purpose is called ***job***. Here is an example from [Prometheus documentation](https://prometheus.io/docs/concepts/jobs_instances/) that monitors a API server deployed with 4 replicas. 
+Prometheus scrape an endpoints to collects sampling points from metrics and stores them as ***time series***. The targeted endpoint is called ***instance***, it is usually corresponding to a service / a process. A collection of instances (targets) with the same purpose, e.g., a web service replicated for scalability or reliability, is called ***job***.  
 
-- job: the api server
-  * instance 1: replicas-1 
-  * instance 2: replicas-1
-  * instance 3: replicas-1
-  * instance 4: replicas-1
+For example, a web service with 4 replicas. To consume metrics from the web service, we need to configure a job with a list of 4 instances (targets).
 
-The following code snippets is the prometheus configuration used by our local environment, you can find the configuration file at `<prometheus_repository>/prometheus/prometheus.yml`. The job configuration defines the name of the job, scrape internal, scrape timeout, metrics path ant metrics schema. The job instance is defined as a list of targets, which are either directly specified as `host:port` or derived from service discovery methods, more details is available [here](https://prometheus.io/docs/prometheus/latest/configuration/configuration/).
+The following code snippets is the prometheus configuration used in the local bundle, the configuration file is at `<prometheus_repository>/prometheus/prometheus.yml`. The key-value list is very self-contained. Notice that there are different ways to specify targets: `prometheus` job claims `static_config` and lists a set of `host:port`; `node-exporter` job uses `dns_sd_config` that leverage NDS name server for services discovery. If Prometheus is running on Kubernetes cluster, there is `kubernetes_sd_config`, it leverage Kubernetes REST API. More details is available [here](https://prometheus.io/docs/prometheus/latest/configuration/configuration/).
 
 
-```
+```yml
 scrape_configs:
 - job_name: prometheus
   scrape_interval: 5s
@@ -54,14 +58,40 @@ scrape_configs:
     port: 9100
 ```
 
-## Promethes Metrics
+## Metrics and Time Series
 
-Prometheus stores time series as ***metrics***, which present streams of timestamped values belonging to the same metrics. The x-axis are timestamps, the y-axis are the sampled values. Even though metrics can be untyped, I would recommend to explicitly privode type information since the type information provides insight about how to use the metrics with monitoring.
+```shell
+# HELP http_requests_total Total number of HTTP requests made.
+# TYPE http_requests_total counter
+http_requests_total{code="200",handler="config",method="get"} 2
+http_requests_total{code="200",handler="graph",method="get"} 2
+http_requests_total{code="200",handler="label_values",method="get"} 3
+http_requests_total{code="200",handler="prometheus",method="get"} 2700
+http_requests_total{code="200",handler="query",method="get"} 5
+http_requests_total{code="200",handler="static",method="get"} 24
+```
 
-There are four metric types in Prometheus: Counter, Gauge, Histogram, Summary. This article focus on the first two types. A counter metric consists of a series of cumulative samples whose value can only increase. Notice that the value resets to zero on job restart. A gauge metric represents a series of numerical value that can arbitrarily go up and down. The later two types consist of multiple correlated metrics. They are tightly coupled with the build-in `histogram_quantile()` functions, which is a very handy tool when we need to monitoring service response times or latencies. We will discuss them in a seperate post later. 
+When Prometheus scrapes metrics, it requires a [text-based format](https://prometheus.io/docs/instrumenting/exposition_formats/#text-based-format). 
+
+## Format: Comments, help text and type information
+* `# <comments>`
+* `# HELP <metric name> [docstring]`
+* `# TYPE <metric name> [counter|gauge|histogram|untyped]`
+* `metric_name [{ "label_name="label_value", ... }] value (decimal) [timestamp]`
+
+
+ 
+Notice that there are four metric types in Prometheus: Counter, Gauge, Histogram, Summary. 
+
+* A counter metric consists of a series of cumulative samples whose value can only increase. *** The value resets to zero if job restarts. ***
+* A gauge metric represents a series of numerical value that can arbitrarily go up and down.
+* Any untyped metric, untyped metic should be avoided in the most of times.
+* A histogram metric usually consists of multiple correlated metrics and tightly couples with the build-in `histogram_quantile()` functions, We will discuss them in a separate post later. 
 
 
 ### Label and Notation
+
+
 
 Metric labels create multi-dimension metrics, any given combination of labels for the same metric name identifies a particular dimensional instantiation of that metric. Given a metric name and a set of labels, time series are frequently identified using this notation:
 ```
