@@ -7,35 +7,37 @@ category: DevOps
 tags: [prometheus]
 ---
 
-This article summarized Prometheus basic concepts for a quick guidance. More details is available at [https://prometheus.io/docs/](https://prometheus.io/docs/).
+This article is bumpstart guidance to use Prometheus for monitoring.
 
 
 ## Run your local environment 
 
-Prometheus code base has a local bundle for demonstration purpose. The following commands will download public docker images and running them on docker.
+Firstly, Let us set up a local deployment with docker-compose.
 
 ```shell
 git clone https://github.com/prometheus/prometheus.git
 cd prometheus
 docker-compose up -d
-
-# http://localhost:9090            - Prometheus UI
-# http://localhost:9100/metrics    - Node Export metrics
-# http://localhost:8080/containers - Container Advisor
-# http://localhost:9093            - Alert Manager
-# http://localhost:3000            - Grafana
 ```
+
+You should have the following components running:
+* [Prometheus UI](http://localhost:9090)
+* [Node Export metrics](http://localhost:9100/metrics)
+* [Container Advisor](http://localhost:8080/containers)
+* [Alert Manager](http://localhost:9093) 
+* [Grafana](http://localhost:3000)
 
 ## Job and Instance
 
-Prometheus scrape an endpoints to collects sampling points from metrics and stores them as ***time series***. The targeted endpoint is called ***instance***, it is usually corresponding to a service / a process. A collection of instances (targets) with the same purpose, e.g., a web service replicated for scalability or reliability, is called ***job***.  
+Prometheus scrapes endpoints to collects sampling points from metrics and stores them as ***time series***. A targeted endpoint is called ***instance***, it is usually corresponding to a service / a process. A collection of instances (targets) with the same purpose, e.g., a web service replicated for scalability or reliability, is called ***job***. For example, a web service with 4 replicas. There will be a scraping job with a list of 4 targets.
 
-For example, a web service with 4 replicas. To consume metrics from the web service, we need to configure a job with a list of 4 instances (targets).
+There a different ways to define scraping jobs, the most simple way is to list targets in `static_configs` with host name and port that renders metrics. Otherwise, we can use service discovery mechanism from  
 
-The following code snippets is the prometheus configuration used in the local bundle, the configuration file is at `<prometheus_repository>/prometheus/prometheus.yml`. The key-value list is very self-contained. Notice that there are different ways to specify targets: `prometheus` job claims `static_config` and lists a set of `host:port`; `node-exporter` job uses `dns_sd_config` that leverage NDS name server for services discovery. If Prometheus is running on Kubernetes cluster, there is `kubernetes_sd_config`, it leverage Kubernetes REST API. More details is available [here](https://prometheus.io/docs/prometheus/latest/configuration/configuration/).
+Notice that there are different ways to specify targets: `prometheus` job claims `static_config` and lists a set of `host:port`; `node-exporter` job uses `dns_sd_config` that leverage NDS name server for services discovery. If Prometheus is running on Kubernetes cluster, there is `kubernetes_sd_config`, it leverage Kubernetes REST API. More details is available [here](https://prometheus.io/docs/prometheus/latest/configuration/configuration/).
 
 
 ```yml
+# prometheus/prometheus.yml
 scrape_configs:
 - job_name: prometheus
   scrape_interval: 5s
