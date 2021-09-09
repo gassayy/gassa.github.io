@@ -19,10 +19,10 @@ Given two integers n and k, return all possible combinations of k numbers out of
 
 在上面的图中，下面一层是上面一层在`dfs` for-loop中的`dfs`的展开，由于要去掉重复的subset，所以每次要把`i+1`. 
 
-LC90基本算是LC78的follow-up，输入数组有重复的元素。排重的方法是：在做操作点，检查一下当前元素`nums[i]`是不是与前一个元素`nums[i-i]`相同，如果相同就跳过。
+LC90基本算是LC78的follow-up，输入数组有重复的元素。排重的方法是：在`dfs`里做操作前，检查一下当前元素`nums[i]`是不是与前一个元素`nums[i-i]`相同，如果相同就跳过。
 
 LC39和LC40(Combination Sum I and II)，需要检查`dfs`停止的条件。
-LC46和LC47(Permutaion I and II), 需要注意的是每次`dfs`中for-loop从0开始，因为[1, 2, 3]和[2, 1, 3]是不用的permutation。同时，还要检查每个元素之用一次。
+LC46和LC47(Permutaion I and II), 需要注意的是每次`dfs`中for-loop从0开始，因为[1, 2, 3]和[2, 1, 3]是不用的permutation。同时，还要保证每个元素之用一次。
 
 
 ### LC 78. Subsets
