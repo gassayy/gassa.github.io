@@ -31,7 +31,7 @@ You should have the following components running:
 
 Prometheus scrapes endpoints to collects sampling points from metrics and stores them as ***time series***. A targeted endpoint is called ***instance***, it is usually corresponding to a service / a process. A collection of instances (targets) with the same purpose, e.g., a web service replicated for scalability or reliability, is called ***job***. For example, a web service with 4 replicas. There will be a scraping job with a list of 4 targets.
 
-There a different ways to define scraping jobs, the most simple way is to list targets in `static_configs` with host name and port that renders metrics. Otherwise, we can use service discovery mechanism from  
+There are different ways to define scraping jobs, the most simple way is to list targets in `static_configs` with host name and port that renders metrics. Otherwise, we can use service discovery mechanism from  
 
 Notice that there are different ways to specify targets: `prometheus` job claims `static_config` and lists a set of `host:port`; `node-exporter` job uses `dns_sd_config` that leverage NDS name server for services discovery. If Prometheus is running on Kubernetes cluster, there is `kubernetes_sd_config`, it leverage Kubernetes REST API. More details is available [here](https://prometheus.io/docs/prometheus/latest/configuration/configuration/).
 
